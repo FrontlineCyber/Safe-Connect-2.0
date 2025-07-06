@@ -1,0 +1,9 @@
+{
+  "name": "safe-connect-2.0",
+  "version": "1.0.0",
+  "description": "Frontline Cyber demo with OpenAI chatbot",
+  "license": "MIT",
+  "dependencies": {
+    "openai": "^4.20.0"
+  }
+}
