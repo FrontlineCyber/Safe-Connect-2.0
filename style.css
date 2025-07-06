@@ -1,0 +1,107 @@
+:root {
+  --forest-dark: #0b3d0b;
+  --forest: #145214;
+  --forest-light: #1f6a1f;
+  --moss: #3e8c3e;
+  --sage: #89b589;
+  --cream: #f5f8f5;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+body.forest {
+  margin: 0;
+  color: var(--cream);
+  background: linear-gradient(180deg, var(--forest-dark) 0%, var(--forest-light) 100%);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.wordmark {
+  margin: 0;
+  font-size: 2.25rem;
+  font-weight: 600;
+  color: var(--sage);
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  color: var(--cream);
+  opacity: 0.8;
+}
+
+.chat {
+  flex: 1;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-log {
+  flex: 1;
+  overflow-y: auto;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  backdrop-filter: blur(2px);
+}
+
+.message {
+  margin-bottom: 1rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+}
+
+.message.user {
+  background: var(--sage);
+  color: var(--forest-dark);
+  text-align: right;
+}
+
+.message.bot {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+#chat-form {
+  display: flex;
+}
+
+#user-input {
+  flex: 1;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 6px 0 0 6px;
+  font-size: 1rem;
+}
+
+#user-input:focus {
+  outline: none;
+}
+
+button[type='submit'] {
+  padding: 0 1rem;
+  background: var(--moss);
+  color: var(--cream);
+  border: none;
+  border-radius: 0 6px 6px 0;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button[type='submit']:hover {
+  background: var(--sage);
+}
