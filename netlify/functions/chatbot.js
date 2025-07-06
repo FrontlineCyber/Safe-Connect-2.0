@@ -1,15 +1,13 @@
-const { Configuration, OpenAIApi } = require('openai');
+// netlify/functions/chatbot.js
 
-const configuration = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY,
+const { OpenAI } = require("openai");
+
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY
 });
-const openai = new OpenAIApi(configuration);
 
-exports.handler = async function(event) {
-  try {
-    const { message } = JSON.parse(event.body || "{}");
-
-    const system_prompt = `
+// Define your full system prompt
+const system_prompt = `
 You are SafeLine Connect, a friendly, emotionally intelligent, and resourceful AI counseling assistant designed for U.S. military families and children stationed overseas—particularly in Stuttgart, Germany. Your role is to provide supportive conversation, behavioral health guidance, coping strategies, and access to appropriate resources. Your tone should be calming, child-friendly, non-judgmental, and always maintain privacy, trust, and respect for the military lifestyle.
 
 You understand:
@@ -34,24 +32,31 @@ You are trained on:
 Your goal is to be a Safe, Friendly, and Helpful first connection for children and families seeking support while living overseas with the U.S. military.
 
 Do not use language like 'I am just a chatbot.' Instead, say: "I'm SafeLine—I'm here to help however I can 💬"
-    `;
+`;
 
-    const completion = await openai.createChatCompletion({
-      model: 'gpt-4',
+exports.handler = async (event) => {
+  try {
+    const { message } = JSON.parse(event.body);
+
+    const completion = await openai.chat.completions.create({
+      model: "gpt-4",
       messages: [
-        { role: 'system', content: system_prompt },
-        { role: 'user', content: message }
+        { role: "system", content: system_prompt },
+        { role: "user", content: message }
       ],
-      max_tokens: 500
+      max_tokens: 500,
+      temperature: 0.7
     });
 
-    const reply = completion.data.choices[0].message.content;
+    const reply = completion.choices[0].message.content;
+
     return {
       statusCode: 200,
-      body: JSON.stringify({ reply }),
+      body: JSON.stringify({ reply })
     };
-  } catch (err) {
-    console.error("Error:", err.message);
+
+  } catch (error) {
+    console.error("Function error:", error);
     return {
       statusCode: 500,
       body: JSON.stringify({ reply: "Something went wrong. Please try again later." })
