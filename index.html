@@ -1,33 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Frontline Cyber – Your Friendly Response Coordinator</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body class="forest">
-    <header>
-      <h1 class="wordmark">Your Friendly Response Coordinator</h1>
-      <p class="subtitle">Frontline Cyber</p>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SafeLine Connect</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #e9f5ea;
+      color: #204d30;
+      margin: 0;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-    <main>
-      <section class="chat">
-        <div id="chat-log" class="chat-log"></div>
-        <form id="chat-form">
-          <input
-            type="text"
-            id="user-input"
-            placeholder="Ask me anything…"
-            autocomplete="off"
-            required
-          />
-          <button type="submit">Send</button>
-        </form>
-      </section>
-    </main>
+    h1 {
+      font-size: 2.5rem;
+      color: #204d30;
+      margin-bottom: 0.5rem;
+    }
 
-    <script src="app.js"></script>
-  </body>
+    p.description {
+      font-size: 1.2rem;
+      max-width: 700px;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    textarea, button {
+      width: 100%;
+      max-width: 600px;
+      padding: 1rem;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    #response {
+      white-space: pre-wrap;
+      background: #ffffff;
+      padding: 1rem;
+      border: 1px solid #ccc;
+      max-width: 600px;
+      border-radius: 8px;
+      font-size: 1.1rem;
+    }
+
+    button {
+      background-color: #3c6e47;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #2f5639;
+    }
+
+    #panic {
+      margin-top: 2rem;
+      background-color: #8b0000;
+    }
+
+    footer {
+      margin-top: 4rem;
+      font-size: 0.85rem;
+      color: #666;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>SafeLine Connect</h1>
+  <p class="description">
+    A friendly AI-enabled friend for military children and families 💬<br>
+    Supporting wellness, kindness, and courage wherever you're stationed.
+  </p>
+
+  <textarea id="userInput" rows="4" placeholder="What's on your mind? Type here..."></textarea>
+  <button onclick="sendMessage()">Send</button>
+
+  <div id="response">Hi there, I’m listening…</div>
+
+  <button id="panic" onclick="panicRedirect()">🚨 Emergency Exit</button>
+
+  <footer>
+    SafeLine Connect © 2025<br>
+    Powered by GPT-4 | Created to support U.S. military families worldwide
+  </footer>
+
+  <script>
+    async function sendMessage() {
+      const input = document.getElementById('userInput').value;
+      const res = await fetch('/.netlify/functions/chatbot', {
+        method: 'POST',
+        body: JSON.stringify({ message: input })
+      });
+      const data = await res.json();
+      document.getElementById('response').textContent = data.reply || "No response.";
+    }
+
+    function panicRedirect() {
+      window.location.href = "https://www.militaryonesource.mil";
+    }
+  </script>
+</body>
 </html>
