@@ -1,0 +1,13 @@
+Copyright © 2025 SafeLine Connect, LLC. All rights reserved.
+
+This software and its contents, including but not limited to its branding, layout, prompt engineering, design, and functionality, are the intellectual property of SafeLine Connect, LLC. Unauthorized use, reproduction, modification, distribution, or commercial exploitation of any part of this project is strictly prohibited without express written permission.
+
+This project may include licensed components such as third-party libraries under their respective open-source licenses. These components remain the property of their original authors and are used with attribution where required.
+
+You may not use the SafeLine Connect name, logo, or likeness in any derivative work or project without prior approval.
+
+For licensing, commercial inquiries, or contribution agreements, please contact:
+
+legal@safelineconnect.org (or your preferred email)
+
+This LICENSE does not grant any rights to use trademarks or branding associated with SafeLine Connect, LLC.
