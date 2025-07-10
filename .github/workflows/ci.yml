@@ -1,13 +1,30 @@
 # .github/workflows/ci.yml
 name: Python tests
+
 on: [push, pull_request]
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
+      # 1. Pull your code
       - uses: actions/checkout@v4
+
+      # 2. Spin up Python 3.11 (change the version if you prefer)
       - uses: actions/setup-python@v5
-        with: { python-version: '3.11' }
-      - run: pip install -r requirements.txt pytest
-      - run: pytest -q
+        with:
+          python-version: "3.11"
+
+      # 3. Install dependencies only if requirements.txt exists,
+      #    then always install pytest so the test command works.
+      - name: Install dependencies
+        run: |
+          if [ -f requirements.txt ]; then
+            pip install -r requirements.txt
+          fi
+          pip install pytest
+
+      # 4. Run tests (-q = quiet, nicer Action logs)
+      - name: Run unit tests
+        run: pytest -q
