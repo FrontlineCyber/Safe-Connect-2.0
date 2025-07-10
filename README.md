@@ -59,6 +59,11 @@ OPENAI_API_KEY=your-key-goes-here
 - 🛣️ [Product Roadmap](./ROADMAP.md) — See what’s coming next for SafeLine Connect
 
 ---
+## 📚 Documentation
+
+- 🧠 [Prompt Strategy](./STRATEGY.md)
+- ⚖️ [Ethics & Compliance Notes](./ETHICS_AND_COMPLIANCE.md)
+
 
 ## 🔒 Legal Notice
 
