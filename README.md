@@ -42,7 +42,6 @@
 - `.env` secure key handling
 
 ---
-📄 [Project Pitch](SafeLine_Connect_GitHub_Pitch.md)
 
 
 ## 🚀 Deployment Instructions
@@ -52,6 +51,12 @@
 3. Create a `.env` file with:
 OPENAI_API_KEY=your-key-goes-here
 4. Deploy on [Netlify](https://netlify.com) or your preferred platform.
+
+---
+## 📌 Project Resources
+
+- 📄 [Security Policy](./SECURITY.md) — How to report vulnerabilities and ensure responsible disclosure  
+- 🛣️ [Product Roadmap](./ROADMAP.md) — See what’s coming next for SafeLine Connect
 
 ---
 
