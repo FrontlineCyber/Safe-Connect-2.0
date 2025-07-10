@@ -42,6 +42,8 @@
 - `.env` secure key handling
 
 ---
+📄 [Project Pitch](SafeLine_Connect_GitHub_Pitch.md)
+
 
 ## 🚀 Deployment Instructions
 
