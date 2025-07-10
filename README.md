@@ -48,3 +48,22 @@
 1. Clone this repo.
 2. Run `npm install` to install dependencies.
 3. Create a `.env` file with:
+OPENAI_API_KEY=your-key-goes-here
+4. Deploy on [Netlify](https://netlify.com) or your preferred platform.
+
+---
+
+## 🔒 Legal Notice
+
+This project is the intellectual property of the creator(s) and is protected under U.S. IP law. Unauthorized reproduction, commercial use, or branding modification without permission is prohibited.
+
+📩 Licensing and security inquiries: Message Directly
+
+---
+
+## 👤 Author
+
+This project was created and maintained by the original founder under the GitHub profile:  
+**[@FrontlineCyber](https://github.com/FrontlineCyber)**  
+Committed to real-world tools that support families who serve. 🇺🇸
+
