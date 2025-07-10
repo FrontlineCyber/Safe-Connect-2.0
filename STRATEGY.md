@@ -1,4 +1,4 @@
-# 🧠 Prompt Strategy – SafeLine Connect
+# Prompt Strategy – SafeLine Connect
 
 ## 🎯 Purpose
 The prompt strategy defines how SafeLine Connect behaves, responds, and maintains trust as an AI-powered behavioral wellness assistant for military families and children living overseas.
