@@ -1,11 +1,38 @@
-# .github/workflows/bandit.yml
-name: Bandit SAST
+# bandit.yml
 
-on: [push, pull_request]
+# List of tests to skip (optional)
+skips: []
 
-jobs:
-  bandit:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: PyCQA/bandit-action@v1
+# List of test IDs to include (optional)
+# If set, only these will be run. Otherwise, all enabled tests run.
+# include: ['B101', 'B102', 'B301']
+
+# Directory or files to exclude from scan
+exclude_dirs:
+  - tests
+  - docs
+  - .venv
+  - venv
+  - __pycache__
+  - node_modules
+
+# Maximum lines in a file before Bandit skips it
+max_file_size: 20000
+
+# Enable recursive scan
+recursive: true
+
+# Output options
+output_format: txt  # options: txt, json, yaml, csv, xml, html
+output_file: bandit_report.txt
+
+# Logging level: CRITICAL, ERROR, WARNING, INFO, DEBUG
+verbosity: INFO
+
+# Confidence levels: LOW, MEDIUM, HIGH
+# Bandit will report issues that meet or exceed the selected level
+confidence: HIGH
+
+# Severity levels: LOW, MEDIUM, HIGH
+# Bandit will report issues that meet or exceed the selected level
+severity: MEDIUM
